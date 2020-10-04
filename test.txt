@@ -1,0 +1,45 @@
+﻿if (ev.Killer.Role == RoleType.NtfCommander)
+                {
+                    string message = VotingSystem.DupecToolbox.Instance.Config.DemotionNTFLieutenant;
+                    ushort time = VotingSystem.DupecToolbox.Instance.Config.MessagesDuration;
+                    ev.Killer.Broadcast(time, message);
+                    float x = ev.Killer.Position.x;
+                    float y = ev.Killer.Position.y;
+                    float z = ev.Killer.Position.z;
+                    ev.Killer.SetRole(RoleType.Spectator);
+                    ev.Killer.SetRole(RoleType.NtfLieutenant);
+                    Timing.CallDelayed(0.4f, () =>
+                    {
+                        ev.Killer.Position = new UnityEngine.Vector3(x, y, z);
+                    });
+                }
+                else if (ev.Killer.Role == RoleType.NtfLieutenant)
+                {
+                    string message = VotingSystem.DupecToolbox.Instance.Config.DemotionNTFCadet;
+                    ushort time = VotingSystem.DupecToolbox.Instance.Config.MessagesDuration;
+                    ev.Killer.Broadcast(time, message);
+                    float x = ev.Killer.Position.x;
+                    float y = ev.Killer.Position.y;
+                    float z = ev.Killer.Position.z;
+                    ev.Killer.SetRole(RoleType.Spectator);
+                    ev.Killer.SetRole(RoleType.NtfCadet);
+                    Timing.CallDelayed(0.4f, () =>
+                    {
+                        ev.Killer.Position = new UnityEngine.Vector3(x, y, z);
+                    });
+                }
+                else if (ev.Killer.Role == RoleType.NtfCadet)
+                {
+                    string message = VotingSystem.DupecToolbox.Instance.Config.DemotionNTFFG;
+                    ushort time = VotingSystem.DupecToolbox.Instance.Config.MessagesDuration;
+                    ev.Killer.Broadcast(time, message);
+                    float x = ev.Killer.Position.x;
+                    float y = ev.Killer.Position.y;
+                    float z = ev.Killer.Position.z;
+                    ev.Killer.SetRole(RoleType.Spectator);
+                    ev.Killer.SetRole(RoleType.FacilityGuard);
+                    Timing.CallDelayed(0.4f, () =>
+                    {
+                        ev.Killer.Position = new UnityEngine.Vector3(x, y, z);
+                    });
+                }
